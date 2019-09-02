@@ -30,6 +30,7 @@
             response.Cache.SetExpires(_clock.GetUtcNow().AddMinutes(_httpExpiryInMinutes));
             response.Cache.SetETagFromFileDependencies();
             response.Cache.SetLastModifiedFromFileDependencies();
+            response.Cache.SetMaxAge(new TimeSpan(0, _httpExpiryInMinutes, 0));
 
             // only modify the vary header if we are modifying the encoding
             if (IsCompressionHandledByResponse)

@@ -74,7 +74,7 @@ namespace dotless.Core
                 pandora.Service<ILessEngine>().Implementor<ParameterDecorator>().Lifestyle.Transient();
 
             if (configuration.CacheEnabled)
-                pandora.Service<ILessEngine>().Implementor<CacheDecorator>().Lifestyle.Transient();
+                pandora.Service<ILessEngine>().Implementor<CacheDecorator>().Lifestyle.Singleton();
 
             pandora.Service<ILessEngine>().Implementor<LessEngine>()
                 .Parameters("compress").Set("minify-output")
